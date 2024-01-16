@@ -18,20 +18,21 @@ public class Matriz {
     private Random rnd = new Random();
     
     public Matriz(int filas, int columnas, boolean inicializarAleatorio){
-        datos = new int[columnas][];
-        for(int i=0; i<columnas; i++){
-            datos[i] = new int[filas];
+        datos = new int[filas][];
+        for(int i=0; i<filas; i++){
+            datos[i] = new int[columnas];
             if (inicializarAleatorio)
-                for(int j=0; j<filas; j++)
+                for(int j=0; j<columnas; j++)
                     datos[i][j] = rnd.nextInt(100);
         }
     }
+
     public Matriz(Dimension d, boolean inicializarAleatorio){
         this(d.height, d.width, inicializarAleatorio);
     }
     
     public Dimension getDimension(){
-        return new Dimension(datos.length, datos[0].length);
+        return new Dimension(datos[0].length, datos.length);
     }
     
     public static Matriz sumarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
@@ -40,8 +41,8 @@ public class Matriz {
         filasA = a.getDimension().height; 
         columnasA = a.getDimension().width; 
         Matriz matrizResultante = new Matriz(filasA, columnasA, false);
-        for (j = 0; j < filasA; j++) { 
-            for (i = 0; i < columnasA; i++) { 
+        for (i = 0; i < filasA; i++) { 
+            for (j = 0; j < columnasA; j++) { 
                 matrizResultante.datos[i][j] += a.datos[i][j] + b.datos[i][j]; 
             } 
         } 
@@ -52,14 +53,14 @@ public class Matriz {
     public String toString(){
         String ret = "";
         ret += "[\n";
-        for (int i = 0; i < getDimension().width; i++) {
+        for (int i = 0; i < getDimension().height; i++) {
             ret += "(";
-            for (int j = 0; j < getDimension().height; j++) {  
+            for (int j = 0; j < getDimension().width; j++) {  
                 ret += String.format("%3d", datos[i][j]); 
-                if (j != getDimension().height - 1) ret += ", ";
+                if (j != getDimension().width - 1) ret += ", ";
             } 
             ret += ")";
-            if (i != getDimension().width - 1) ret += ",";
+            if (i != getDimension().height - 1) ret += ",";
             ret += "\n";
         } 
         ret += "]\n";
