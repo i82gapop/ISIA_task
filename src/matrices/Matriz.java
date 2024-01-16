@@ -50,7 +50,6 @@ public class Matriz {
     } 
 
     /**
-<<<<<<< HEAD
     *
     * @author pedro
     */    
