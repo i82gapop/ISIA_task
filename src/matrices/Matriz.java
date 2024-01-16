@@ -49,6 +49,10 @@ public class Matriz {
         return matrizResultante; 
     } 
 
+    /**
+     *
+     * @author ángel
+     */
     public static Matriz multiplicarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles {
         if(a.getDimension().width != b.getDimension().height) throw new DimensionesIncompatibles("La multiplicación de matrices requiere que el número de columnas de la primera sea igual al número de filas de la segunda");
         
