@@ -69,6 +69,25 @@ public class Matriz {
         return matrizResultante;
     }
 
+    /**
+    *
+    * @author pedro
+    */
+    public static Matriz transponer(Matriz a){
+
+        int i, j, filasA, columnasA; 
+        filasA = a.getDimension().height; 
+        columnasA = a.getDimension().width; 
+        Matriz matrizResultante = new Matriz(columnasA, filasA, false);
+        for (j = 0; j < filasA; j++) { 
+            for (i = 0; i < columnasA; i++) { 
+                matrizResultante.datos[j][i] = a.datos[i][j]; 
+            } 
+        } 
+        
+        return matrizResultante;
+    }
+
     @Override
     public String toString(){
         String ret = "";
