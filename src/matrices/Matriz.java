@@ -66,7 +66,7 @@ public class Matriz {
         } 
         
         return matrizResultante;
-
+    }
     /**
     *
     * @author ángel
