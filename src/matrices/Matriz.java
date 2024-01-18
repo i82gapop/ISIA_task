@@ -31,6 +31,10 @@ public class Matriz {
         this(d.height, d.width, inicializarAleatorio);
     }
     
+	public Matriz(int[][] datos) {
+		this.datos = datos;
+	}
+    
     public Dimension getDimension(){
         return new Dimension(datos[0].length, datos.length);
     }
