@@ -78,18 +78,15 @@ public class Matriz {
     * @author pedro
     */
     public static Matriz transponer(Matriz a){
+		Matriz matrizResultante = new Matriz(a.getDimension().width, a.getDimension().height, false);
 
-        int i, j, filasA, columnasA; 
-        filasA = a.getDimension().height; 
-        columnasA = a.getDimension().width; 
-        Matriz matrizResultante = new Matriz(columnasA, filasA, false);
-        for (j = 0; j < filasA; j++) { 
-            for (i = 0; i < columnasA; i++) { 
-                matrizResultante.datos[j][i] = a.datos[i][j]; 
-            } 
-        } 
-        
-        return matrizResultante;
+		for (int i = 0; i < a.getDimension().height; i++) {
+			for (int j = 0; j < a.getDimension().width; j++) {
+				matrizResultante.datos[j][i] = a.datos[i][j];
+			}
+		}
+
+		return matrizResultante;
     }
 
     @Override
